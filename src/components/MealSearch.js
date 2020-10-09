@@ -1,23 +1,24 @@
 import React from 'react';
 
-const meal = {};
-
 class MealSearch extends React.Component {
     componentDidMount() {
-        const apiUrl =
-          "https://www.themealdb.com/api/json/v1/1/filter.php?i=avocado";
+        const apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
     fetch(apiUrl)
       .then((response) => response.json())
-      .then((data) => console.log('This is your data', data));
+      .then((data) => {
+        this.props.addMeal(data.meals[0]);
+      });
     }
 
     render() {
+      console.log(this.props.meal)
         return (
           <div>
             <form>
               <input type="text" placeholder="Meal"></input>
             </form>
-            <p>this is the meal search component</p><hr />
+            <p>this is the meal search component</p>
+            <hr />
           </div>
         );
     }
