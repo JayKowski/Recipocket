@@ -1,28 +1,39 @@
 import React from 'react';
 import '../stylesheets/App.css';
-import Meal from './Meal';
+import Welcome from './Welcome';
 import MealSearch from './MealSearch';
-import MealPreview from './MealPreview';
+import Meal from './Meal';
 import CategorySearch from './CategorySearch';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/actions'
 import { connect } from 'react-redux';
+import { withRouter, Route } from 'react-router-dom';
 
 
 
 class App extends React.Component {
   render() {
-    console.log(this.props.state);
+    // console.log(this.props)
     return (
-      <div>
-        <hr />
-        <h1>Meal Tips</h1>
-        <p>Your number one place for delicious meal recipes</p>
-        <hr />
-        <MealSearch addMeal={this.props.addMeal} meal={this.props.state.oneMealReducer} />
-        <MealPreview meal={this.props.state.oneMealReducer} />
-        <Meal />
-        <CategorySearch />
+      <div className="app-container">
+        <Route exact 
+          path='/' 
+          render={() => (
+            <div>
+              <Welcome />
+              <MealSearch addMeal={this.props.addMeal} {...this.props} />
+              <CategorySearch {...this.props} categ={this.props.state.categoriesReducer} />
+            </div>
+          )}
+        />
+        <Route
+          path="/meal/:id"
+          render={ params => (
+            <div>
+              <Meal {...this.props} {...params} />
+            </div>
+          )}
+        />
       </div>
     );
   }
@@ -38,4 +49,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ ...actions }, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
