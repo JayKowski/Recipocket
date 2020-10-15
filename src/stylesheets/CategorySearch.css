@@ -1,0 +1,16 @@
+.categ-search {
+    text-align: center;
+}
+
+.categ-search .categ-heading {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+}
+
+.categ-search .categs-list {
+    padding: 5px;
+    margin-top: 10px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    color: #777
+}

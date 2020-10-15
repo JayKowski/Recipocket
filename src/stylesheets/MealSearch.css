@@ -1,0 +1,15 @@
+.meal-search {
+    text-align: center;
+}
+
+.meal-search .head-name {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+}
+
+.meal-search input {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
