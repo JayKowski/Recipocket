@@ -8,7 +8,10 @@ function oneMealReducer( state=[], action) {
 }
 
 function multiMealReducer( state={}, action) {
-    return state;
+    switch(action.type) {
+        case 'ADD_MEALS': return action.meals
+        default: return state
+    }
 }
 
 function categoriesReducer( state=[], action) {
