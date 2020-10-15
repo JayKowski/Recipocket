@@ -1,5 +1,6 @@
 import React from 'react';
 import RenderCategs from './RenderCategs';
+import '../stylesheets/CategorySearch.css';
 
 const categoriesA = ["Beef", "Chicken", "Dessert", "Lamb", "Miscellaneous", "Pasta", "Pork", "Seafood", "Side", "Starter", "Vegan", "Vegetarian", "Breakfast", "Goat"];
 let meals;
@@ -16,6 +17,7 @@ class CategorySearch extends React.Component {
       fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         console.log('...updated')
       });
       }
@@ -28,12 +30,12 @@ class CategorySearch extends React.Component {
   render() {
     if(typeof this.props.state.categoryReducer === 'object') {
         return (
-        <div>
-          <h2>Category Search</h2>
+        <div className="categ-search">
+          <h2 className="categ-heading" >Category Search</h2>
           <form>
             <label>
-              Choose a category to search by :
-              <select onChange={this.handleChange}>
+              Choose a category to search by  <br />
+              <select onChange={this.handleChange} className="categs-list">
                 {categoriesA.map((categ, index) => (
                   
                   <option
@@ -48,11 +50,11 @@ class CategorySearch extends React.Component {
       );
     } else {
       return (
-      <div>
-        <h2>Category Search</h2>
+      <div className="categ-search">
+        <h2 className="categ-heading" >Category Search</h2>
         <form>
           <label>
-            Choose a category to search by:
+            Choose a category to search by <br />
             <select onChange={this.handleChange}>
               {categoriesA.map((categ, index) => (
                 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Meal from './Meal';
-import MealPreview from './MealPreview'
+import MealPreview from './MealPreview';
+import '../stylesheets/MealSearch.css';
 
 let preview;
 
@@ -28,45 +28,39 @@ class MealSearch extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   console.log('mounting . . .')
-  // }
-  
-  fetchData() {
-    const apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
-    fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      this.props.addMeal(data.meals[0]);
-    });
-    console.log('component mounted...')
-  }
-
   handleSubmit(e) {
     e.preventDefault();
     this.props.searchMeal(e.target.elements[0].value);
+    e.target.elements[0].value = '';
   }
 
   render() {
-    console.log(typeof this.props.state.oneMealReducer.idMeal);
-    console.log('preview. . .', preview);
     if(typeof this.props.state.oneMealReducer.idMeal !== 'undefined') {
-      console.log(preview);
       return (
-        <div>
+        <div className="meal-search">
+          <h2 className="head-name">Name Search</h2>
           <form onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Meal"></input>
+            <label>
+              Search by typing a meal's name <br />
+              <input type="text" placeholder="Meal"></input>
+            </label>
           </form>
           <MealPreview meal={preview}/>
           <hr />
         </div>
       );
     } else {
-      console.log(typeof this.props.state.oneMealReducer);
+      // console.log(typeof this.props.state.oneMealReducer);
       return (
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Meal"></input>
-        </form>
+        <div className="meal-search">
+          <h2 className="head-name">Name Search</h2>
+          <form onSubmit={this.handleSubmit} className="name-form">
+            <label>
+              Search by typing a meal's name <br />
+              <input type="text" placeholder="Meal"></input>
+            </label>
+          </form>
+        </div>
       );
     }
   }
