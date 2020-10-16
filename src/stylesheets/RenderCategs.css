@@ -1,0 +1,27 @@
+.render-categs {
+
+}
+
+.render-categs .categs-heading{
+    font-family: 'Anton', sans-serif;
+    font-size: 25px;
+}
+
+.render-categs ul {
+    list-style-type: none;
+}
+
+.render-categs .categories-container {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bolder;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.render-categs .categories-container .categ-item {
+    display: flex;
+    flex-basis: 30%;
+    text-align: center;
+}

@@ -1,16 +1,51 @@
 .welcome-banner {
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
+    background-image: url(../images/welcome-banner.jpg);
+    height: 420px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blur {
+    height: 100%;
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 .welcome-banner .app-title{
     text-align: center;
-    color: #1D3557;
+    color: #F29602;
     font-family: 'Anton', sans-serif;
-    font-size: 40px;
+    font-size: 90px;
+    margin: 0;
+}
+
+.welcome-banner .app-title-hr {
+    overflow: visible;
+    width: 40%;
+    padding: 0;
+    border: none;
+    border-top: medium double #FDA821;
+    text-align: center;
+    color: #FDA821;
+}
+
+.welcome-banner .app-title-hr::after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    /* color: #FDA821; */
 }
 
 .welcome-banner p {
-    color: #457B9D;
+    color: #BBD9DD;
     font-family: 'Montserrat', sans-serif;
 }
