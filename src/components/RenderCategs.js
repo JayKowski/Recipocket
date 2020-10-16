@@ -1,5 +1,6 @@
 import React from 'react';
 import MealPreview from './MealPreview';
+import '../stylesheets/RenderCategs.css'
 
 
 let meals;
@@ -32,16 +33,18 @@ class RenderCategs extends React.Component {
   render() {
     if(meals) {
       return (
-        <div>
-          <h2>Render Categs</h2>
-          <ul>
-            {
+        <div className="render-categs">
+          <h2 className="categs-heading">Render Categs</h2>
+          <ul className="categ-list">
+            <div className="categories-container"> 
+              {
               meals.map((m, index) => (
-                <li key={`${index}`}>
+                <li className="categ-item" key={`${index}`}>
                   <MealPreview meals={m}/>
                 </li>
               ))
             }
+            </div>
           </ul>
         </div>
       );

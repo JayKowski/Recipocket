@@ -46,11 +46,10 @@ class MealSearch extends React.Component {
             </label>
           </form>
           <MealPreview meal={preview}/>
-          <hr />
+          <hr className="meal-search-hr"/>
         </div>
       );
     } else {
-      // console.log(typeof this.props.state.oneMealReducer);
       return (
         <div className="meal-search">
           <h2 className="head-name">Name Search</h2>

@@ -55,7 +55,7 @@ class CategorySearch extends React.Component {
         <form>
           <label>
             Choose a category to search by <br />
-            <select onChange={this.handleChange}>
+            <select onChange={this.handleChange} className="categs-list">
               {categoriesA.map((categ, index) => (
                 
                 <option

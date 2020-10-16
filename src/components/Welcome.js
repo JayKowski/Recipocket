@@ -5,8 +5,11 @@ class Welcome extends React.Component {
     render() {
         return (
             <div className="welcome-banner">
-                <h1 className="app-title">Recipocket</h1>
-                <p>Your number one place for delicious meal recipes</p>
+                <div className="blur">
+                    <h1 className="app-title">Recipocket</h1>
+                    <hr className="app-title-hr"/>
+                    <p>Your number one place for delicious meal recipes</p>
+                </div>
             </div>
         )
     }
