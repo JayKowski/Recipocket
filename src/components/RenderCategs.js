@@ -1,59 +1,74 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
+import PropTypes from 'prop-types';
 import MealPreview from './MealPreview';
-import '../stylesheets/RenderCategs.css'
-
+import '../stylesheets/RenderCategs.css';
 
 let meals;
 
 class RenderCategs extends React.Component {
-  componentDidUpdate(prevState) {
-    if(prevState.state.categoryReducer !== this.props.state.categoryReducer){
-     const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${this.props.state.categoryReducer}`;
-    console.log('Render UPDATED. . .', this.props.state.categoryReducer, apiUrl);
+  componentDidMount() {
+    const { categoryReducer, addMeals } = this.props;
+    const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryReducer}`;
+    // console.log(state.categoryReducer);
     fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      meals = data.meals;
-      this.props.addMeals(data.meals);
-    });
+      .then(response => response.json())
+      .then(data => {
+        meals = data.meals;
+        addMeals(data.meals);
+      });
+  }
+
+  componentDidUpdate(prevState) {
+    const { categoryReducer, state, addMeals } = this.props;
+    if (prevState.state.categoryReducer !== state.categoryReducer) {
+      const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryReducer}`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          meals = data.meals;
+          addMeals(data.meals);
+        });
     }
   }
 
-  componentDidMount() {
-    const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${this.props.state.categoryReducer}`;
-    console.log(this.props.state.categoryReducer);
-    fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      meals = data.meals;
-      this.props.addMeals(data.meals);
-    });
-  }
-
   render() {
-    if(meals) {
+    if (meals) {
       return (
         <div className="render-categs">
-          <h2 className="categs-heading">Render Categs</h2>
+          <h2 className="categs-heading">
+            Search results [
+            {meals.length}
+            {' '}
+            ]
+            {' '}
+          </h2>
           <ul className="categ-list">
-            <div className="categories-container"> 
+            <div className="categories-container">
               {
               meals.map((m, index) => (
-                <li className="categ-item" key={`${index}`}>
-                  <MealPreview meals={m}/>
+                <li className="categ-item" key={`0${10 + index}`}>
+                  <MealPreview meals={m} />
                 </li>
               ))
             }
             </div>
           </ul>
+          <h2 className="categs-heading">END</h2>
         </div>
       );
-    } else {
-      return (
-        <p>rendering categs. . . .</p>
-      )
     }
+    return (
+      <p>rendering categs. . . .</p>
+    );
   }
 }
+
+RenderCategs.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  state: PropTypes.object.isRequired,
+  addMeals: PropTypes.func.isRequired,
+  categoryReducer: PropTypes.string.isRequired,
+};
 
 export default RenderCategs;

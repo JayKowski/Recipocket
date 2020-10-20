@@ -1,53 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import measFunc from '../helpers/measures';
 import ingFunc from '../helpers/ingredients';
 import Welcome from './Welcome';
 import '../stylesheets/Meal.css';
 
 function parseInstructions(instructions) {
-  const instSplit = instructions.split(". ");
+  const instSplit = instructions.split('. ');
   return instSplit;
 }
 
-
 class Meal extends React.Component {
-
-  componentDidUpdate(prevState) {
-    if(prevState.match.params.id !== this.props.match.params.id ) {
-    const apiUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.props.match.params.id}`;
+  componentDidMount() {
+    const { match, addMeal } = this.props;
+    const apiUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
     fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      this.props.addMeal(data);
-      console.log('data');
-    });
-   }
+      .then(response => response.json())
+      .then(data => {
+        addMeal(data);
+      });
   }
 
-  componentDidMount() {
-    const apiUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.props.match.params.id}`;
-    fetch(apiUrl)
-    .then((response) => response.json())
-    .then((data) => {
-      this.props.addMeal(data);
-      console.log('...mounted');
-    });
+  componentDidUpdate(prevState) {
+    const { match, addMeal } = this.props;
+    if (prevState.match.params.id !== match.params.id) {
+      const apiUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${match.params.id}`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          addMeal(data);
+        });
+    }
   }
 
   render() {
-    console.log(this.props.state.oneMealReducer.meals)
-    if(this.props.state.oneMealReducer.meals) {
-      let measurements = measFunc(this.props.state.oneMealReducer.meals[0]);
-      let ingredients = this.props.state.oneMealReducer.meals[0] ? ingFunc(this.props.state.oneMealReducer.meals[0]) : 'Loading. . .';
-      let instructions = parseInstructions(this.props.state.oneMealReducer.meals[0].strInstructions);
+    const { state } = this.props;
+    if (state.oneMealReducer.meals) {
+      const measurements = measFunc(state.oneMealReducer.meals[0]);
+      const ingredients = state.oneMealReducer.meals[0] ? ingFunc(state.oneMealReducer.meals[0]) : 'Loading. . .';
+      const instructions = parseInstructions(state.oneMealReducer.meals[0].strInstructions);
       return (
         <div className="full-meal-details">
           <Welcome />
           <div className="deets-container">
-            <h2 className="f-meal-heading">{this.props.state.oneMealReducer.meals[0].strMeal}</h2>
+            <h2 className="f-meal-heading">{state.oneMealReducer.meals[0].strMeal}</h2>
             <div className="img-deets-wrapper">
               <div className="meal-image">
-                <img className="f-meal-img" alt="" src={this.props.state.oneMealReducer.meals[0].strMealThumb} width="300" height="300" />
+                <img className="f-meal-img" alt="" src={state.oneMealReducer.meals[0].strMealThumb} width="300" height="300" />
               </div>
               <div className="measures">
                 <table className="measures-table">
@@ -60,7 +59,8 @@ class Meal extends React.Component {
                   <tbody>
                     {
                       measurements.map((measure, index) => (
-                        <tr key={`${index}`}>
+                        // eslint-disable-next-line react/no-array-index-key
+                        <tr key={`measure-${index}`}>
                           <td className="t-left">{ingredients[index]}</td>
                           <td className="t-right">{measure}</td>
                         </tr>
@@ -72,11 +72,12 @@ class Meal extends React.Component {
             </div>
           </div>
           <div className="f-meal-instructions">
-            <hr className="f-meal-hr"/>
+            <hr className="f-meal-hr" />
             <h2 className="inst-head">Instructions</h2>
             <ol className="instructions-list">
               {
                 instructions.map((inst, ind) => (
+                  // eslint-disable-next-line react/no-array-index-key
                   <li className="" key={`instruct-${ind}`}>{inst}</li>
                 ))
               }
@@ -84,10 +85,17 @@ class Meal extends React.Component {
           </div>
         </div>
       );
-    } else {
-        return <h2>Loading. . .</h2>;
     }
+    return <h2>Loading. . .</h2>;
   }
 }
+
+Meal.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  state: PropTypes.object.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  match: PropTypes.object.isRequired,
+  addMeal: PropTypes.func.isRequired,
+};
 
 export default Meal;
