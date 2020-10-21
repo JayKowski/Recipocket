@@ -1,4 +1,7 @@
 # Recipocket 🍽
+
+![recipocket](https://user-images.githubusercontent.com/47361638/96798114-d887bb80-1408-11eb-942d-a54a611a472a.png)
+
 Recipocket, Many recipies in one place 😋🍕🍗
 
 ## About the project
@@ -7,8 +10,8 @@ This is a web-based recipe app built on react that serves the purpose of providi
 
 ## Live Link
 
-Give the app a try using the link below and search for some recipes!
-<!-- [Bunny Hop](https://bunny-hop.netlify.app) -->
+Give the app a try using the link below and search for some recipes! <br />
+[Recipocket](https://recipocket.herokuapp.com/)
 
 ## How the App works
 
@@ -40,7 +43,7 @@ You will need the following environments installed in your pc:
 
 first off, clone the repo onto your local environment:
 
-> ```git clone https://github.com/JayKowski/endless-runner.git```
+> ```https://github.com/JayKowski/Recipocket.git```
 
 - Install the required packages with:
 
@@ -48,14 +51,10 @@ first off, clone the repo onto your local environment:
 
 - Build and serve with:
 
-> ```npx webpack```
+> ```npm start```
 
-This instance will be running at the **port 5500** in your local host.
-It is also adviceable for you to have a server running HTTP as Phaser would have issues 
-passing assets over a non-http server connection
-
-I recommend live server if you're on VS Code or Atom.
-it requires no other configuration and is usable just by starting live server.
+This instance will be running at the **port 3000** in your local host.
+it requires no other configuration and is usable just by running the npm start command.
 
 ## Technologies 
 
