@@ -38,6 +38,7 @@ class RenderCategs extends React.Component {
         <div className="render-categs">
           <h2 className="categs-heading">
             Search results [
+            {' '}
             {meals.length}
             {' '}
             ]
