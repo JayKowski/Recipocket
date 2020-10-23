@@ -12,13 +12,6 @@ export function addMeals(meals) {
   };
 }
 
-export function addCategories(categories) {
-  return {
-    type: 'ADD_CATEGORIES',
-    categories,
-  };
-}
-
 export function changeCategory(category) {
   return {
     type: 'CHANGE_CATEGORY',

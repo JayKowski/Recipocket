@@ -81,9 +81,13 @@ class CategorySearch extends React.Component {
 
 CategorySearch.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    categoryReducer: PropTypes.string.isRequired,
+    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
+    oneMealReducer: PropTypes.instanceOf(Object),
+    searchMealReducer: PropTypes.string,
+  }).isRequired,
   changeCategory: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
   categoryReducer: PropTypes.string.isRequired,
   addMeals: PropTypes.func.isRequired,
 };

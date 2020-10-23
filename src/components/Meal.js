@@ -91,10 +91,18 @@ class Meal extends React.Component {
 }
 
 Meal.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  match: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    categoryReducer: PropTypes.string.isRequired,
+    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
+    oneMealReducer: PropTypes.instanceOf(Object),
+    searchMealReducer: PropTypes.string,
+  }).isRequired,
+  match: PropTypes.shape({
+    isExact: PropTypes.bool,
+    params: PropTypes.instanceOf(Object),
+    path: PropTypes.string,
+    url: PropTypes.string,
+  }).isRequired,
   addMeal: PropTypes.func.isRequired,
 };
 

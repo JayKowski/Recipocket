@@ -50,7 +50,12 @@ class App extends React.Component {
 
 App.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    categoryReducer: PropTypes.string.isRequired,
+    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
+    oneMealReducer: PropTypes.instanceOf(Object),
+    searchMealReducer: PropTypes.string,
+  }).isRequired,
   changeCategory: PropTypes.func.isRequired,
   addMeals: PropTypes.func.isRequired,
   addMeal: PropTypes.func.isRequired,

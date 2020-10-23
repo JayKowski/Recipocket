@@ -39,7 +39,7 @@ You will need the following environments installed in your pc:
 
 - NPM or Yarn (NPM preferable)
 
-### Instructions 
+### Cloning Instructions 
 
 first off, clone the repo onto your local environment:
 
@@ -55,6 +55,15 @@ first off, clone the repo onto your local environment:
 
 This instance will be running at the **port 3000** in your local host.
 it requires no other configuration and is usable just by running the npm start command.
+
+### Testing
+After finishing the above cloning process, move to the terminal and run the following command. 
+Make sure that you're still in the project directory.
+
+> ```npm run test```
+
+After running the above command, the successful test results will show in green on the terminal.
+Please note that all tests that currently exist in the project run properly and pass. 
 
 ## Technologies 
 

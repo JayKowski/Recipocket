@@ -72,8 +72,13 @@ class MealSearch extends React.Component {
 }
 
 MealSearch.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  state: PropTypes.object.isRequired,
+  state: PropTypes.shape({
+    categoryReducer: PropTypes.string.isRequired,
+    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
+    // eslint-disable-next-line react/forbid-prop-types
+    oneMealReducer: PropTypes.instanceOf(Object),
+    searchMealReducer: PropTypes.string,
+  }).isRequired,
   addMeal: PropTypes.func.isRequired,
   searchMeal: PropTypes.func.isRequired,
 };
