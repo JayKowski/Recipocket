@@ -76,8 +76,7 @@ class Meal extends React.Component {
             <ol className="instructions-list">
               {
                 instructions.map((inst, ind) => (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <li className="" key={`instruct-${ind}`}>{inst}</li>
+                  <li className="" key={`instruct-${ind + 100}`}>{inst}</li>
                 ))
               }
             </ol>

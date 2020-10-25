@@ -58,7 +58,7 @@ class RenderCategs extends React.Component {
       );
     }
     return (
-      <p>rendering categs. . . .</p>
+      <p className="categs-heading">Rendering categories. . . .</p>
     );
   }
 }
