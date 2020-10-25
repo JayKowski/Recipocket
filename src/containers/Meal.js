@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import measFunc from '../helpers/measures';
 import ingFunc from '../helpers/ingredients';
-import Welcome from './Welcome';
+import Welcome from '../components/Welcome';
 import '../stylesheets/Meal.css';
 
 function parseInstructions(instructions) {
@@ -59,8 +59,7 @@ class Meal extends React.Component {
                   <tbody>
                     {
                       measurements.map((measure, index) => (
-                        // eslint-disable-next-line react/no-array-index-key
-                        <tr key={`measure-${index}`}>
+                        <tr key={`measure-${index + 100}`}>
                           <td className="t-left">{ingredients[index]}</td>
                           <td className="t-right">{measure}</td>
                         </tr>

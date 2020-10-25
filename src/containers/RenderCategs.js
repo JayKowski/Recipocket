@@ -1,7 +1,6 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import MealPreview from './MealPreview';
+import MealPreview from '../components/MealPreview';
 import '../stylesheets/RenderCategs.css';
 
 let meals;
@@ -10,7 +9,6 @@ class RenderCategs extends React.Component {
   componentDidMount() {
     const { categoryReducer, addMeals } = this.props;
     const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryReducer}`;
-    // console.log(state.categoryReducer);
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
@@ -66,10 +64,9 @@ class RenderCategs extends React.Component {
 }
 
 RenderCategs.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   state: PropTypes.shape({
     categoryReducer: PropTypes.string.isRequired,
-    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
+    multiMealReducer: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
     oneMealReducer: PropTypes.instanceOf(Object),
     searchMealReducer: PropTypes.string,
   }).isRequired,

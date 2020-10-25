@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MealPreview from './MealPreview';
+import MealPreview from '../components/MealPreview';
 import '../stylesheets/MealSearch.css';
 
 let preview;
@@ -19,9 +19,10 @@ class MealSearch extends React.Component {
         .then(response => response.json())
         .then(data => {
           if (data.meals !== null) {
-            // eslint-disable-next-line prefer-destructuring
-            preview = data.meals[0];
-            return addMeal(data.meals[0]);
+            const { meals } = data;
+            const [mealsArr] = meals;
+            preview = mealsArr;
+            return addMeal(mealsArr);
           }
           // eslint-disable-next-line no-alert
           return alert(`sorry, "${state.searchMealReducer}" recipe not found`);
@@ -74,8 +75,7 @@ class MealSearch extends React.Component {
 MealSearch.propTypes = {
   state: PropTypes.shape({
     categoryReducer: PropTypes.string.isRequired,
-    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
-    // eslint-disable-next-line react/forbid-prop-types
+    multiMealReducer: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
     oneMealReducer: PropTypes.instanceOf(Object),
     searchMealReducer: PropTypes.string,
   }).isRequired,
