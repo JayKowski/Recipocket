@@ -1,0 +1,78 @@
+.full-meal-details .f-meal-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  color: #14213d;
+  text-decoration: underline;
+}
+
+.full-meal-details .deets-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-meal-details .img-deets-wrapper {
+  display: flex;
+}
+
+.full-meal-details .img-deets-wrapper .f-meal-img {
+  border: 1px solid #e9e9e9;
+  border-radius: 5px;
+}
+
+.full-meal-details .measures {
+  margin-left: 20px;
+}
+
+.full-meal-details .measures .measures-table {
+  border: 1px solid #0a111f;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.full-meal-details .measures tr:nth-child(even) {
+  background-color: #fed086;
+}
+
+.measures .measures-table th {
+  background-color: #fed086;
+}
+
+.measures .measures-table td,
+.measures .measures-table th {
+  border: 1px solid #1e335c;
+  padding: 4px;
+}
+
+.full-meal-details .measures .t-left {
+  text-align: left;
+}
+
+.full-meal-details .measures .t-right {
+  text-align: right;
+}
+
+.f-meal-instructions .f-meal-hr {
+  width: 70%;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  margin-top: 45px;
+}
+
+.full-meal-details .f-meal-instructions {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.full-meal-details .f-meal-instructions .inst-head {
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  color: #14213d;
+  text-decoration: underline;
+}
+
+.full-meal-details .f-meal-instructions .instructions-list {
+  font-family: 'Montserrat', sans-serif;
+}

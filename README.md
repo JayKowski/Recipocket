@@ -1,68 +1,84 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Recipocket 🍽
 
-## Available Scripts
+![recipocket](https://user-images.githubusercontent.com/47361638/96798114-d887bb80-1408-11eb-942d-a54a611a472a.png)
 
-In the project directory, you can run:
+Recipocket, Many recipies in one place 😋🍕🍗
 
-### `yarn start`
+## About the project
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a web-based recipe app built on react that serves the purpose of providing recipes for the users
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Live Link
 
-### `yarn test`
+Give the app a try using the link below and search for some recipes! <br />
+[Recipocket](https://recipocket.herokuapp.com/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How the App works
 
-### `yarn build`
+it's pretty much straight forward!
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Right on the landing page, a user is met by two search types. 
+Category and Meal.
+The category search contains a drop down menu that lets the user search for meals from a certain category,
+while the meal search lets a user search for a specific meal by name.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+While the meal search returns a single Meal preview bubble, the Category search renders a Meal Preview bubble for every meal retrieved from the given category.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+clicking the "see more" button or on the Meal Preview image itself will direct the user to another "page" (this is a single-page application) that displays the 
+information about the Meal. Information entails the meal's ingredients (with respective measurements) and the instructions to prepare the meal.
 
-### `yarn eject`
+## Prerequisites and instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+If you would however fancy something more than just using the app online, you can actually download the project locally
+and make any modifications of your own!
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If so, please follow the given instructions.
+You will need the following environments installed in your pc:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Node Js installed
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- NPM or Yarn (NPM preferable)
 
-## Learn More
+### Cloning Instructions 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+first off, clone the repo onto your local environment:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> ```https://github.com/JayKowski/Recipocket.git```
 
-### Code Splitting
+- Install the required packages with:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+> ```npm install```
 
-### Analyzing the Bundle Size
+- Build and serve with:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+> ```npm start```
 
-### Making a Progressive Web App
+This instance will be running at the **port 3000** in your local host.
+it requires no other configuration and is usable just by running the npm start command.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Testing
+After finishing the above cloning process, move to the terminal and run the following command. 
+Make sure that you're still in the project directory.
 
-### Advanced Configuration
+> ```npm run test```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+After running the above command, the successful test results will show in green on the terminal.
+Please note that all tests that currently exist in the project run properly and pass. 
 
-### Deployment
+## Technologies 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- Javascript ES6
+- ReactJS
+- Node
+- Webpack
+- Jest (for testing)
 
-### `yarn build` fails to minify
+## Contact
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+If you liked this project please, take your time to come hang out with me or checkout my work on:  
+
+- Github [@JayKowski](https://github.com/JayKowski)
+
+- LinkedIn [@JayMaina](https://www.linkedin.com/in/jay-maina/)
+
+- Gmail [Email me too!](jaymaina5@gmail.com)

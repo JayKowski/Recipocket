@@ -1,0 +1,15 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.app-container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #f0f3fa;
+  border: 3px solid #e0e0e0;
+  border-radius: 3px;
+}
