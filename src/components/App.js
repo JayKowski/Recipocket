@@ -8,6 +8,7 @@ import Welcome from './Welcome';
 import MealSearch from '../containers/MealSearch';
 import Meal from '../containers/Meal';
 import CategorySearch from './CategorySearch';
+import SampleMeals from '../containers/SampleMeals';
 import * as actions from '../actions/actions';
 
 function App(props) {
@@ -30,6 +31,11 @@ function App(props) {
               categoryReducer={categoryReducer}
               addMeals={addMeals}
             />
+            <SampleMeals
+              sampleMeals={props.sampleMeals}
+              currSample={props.currSample}
+              state={props.state}
+            />
           </div>
         )}
       />
@@ -48,7 +54,7 @@ function App(props) {
 App.propTypes = {
   state: PropTypes.shape({
     categoryReducer: PropTypes.string.isRequired,
-    multiMealReducer: PropTypes.arrayOf(PropTypes.object),
+    multiMealReducer: PropTypes.arrayOf(PropTypes.instanceOf(Object)),
     oneMealReducer: PropTypes.instanceOf(Object),
     searchMealReducer: PropTypes.string,
   }).isRequired,
@@ -56,6 +62,8 @@ App.propTypes = {
   addMeals: PropTypes.func.isRequired,
   addMeal: PropTypes.func.isRequired,
   searchMeal: PropTypes.func.isRequired,
+  sampleMeals: PropTypes.func.isRequired,
+  currSample: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {

@@ -23,6 +23,7 @@ function CategorySearch(props) {
             {' '}
             <br />
             <select onChange={handleChange} className="categs-list" name="category">
+              <option value="None">None</option>
               {categoriesA.map((categ, index) => (
                 <option
                   value={`${categ}`}
@@ -46,8 +47,8 @@ function CategorySearch(props) {
           {' '}
           <br />
           <select onChange={handleChange} className="categs-list" name="category">
+            <option value="None">None</option>
             {categoriesA.map((categ, index) => (
-
               <option
                 value={`${categ}`}
                 key={`${index + 100}`}

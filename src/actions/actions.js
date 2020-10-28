@@ -25,3 +25,17 @@ export function searchMeal(meal) {
     meal,
   };
 }
+
+export function sampleMeals(samples) {
+  return {
+    type: 'SAMPLE_MEALS',
+    samples,
+  };
+}
+
+export function currSample(sample) {
+  return {
+    type: 'CURRENT_SAMPLE',
+    sample,
+  };
+}

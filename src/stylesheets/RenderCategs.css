@@ -1,6 +1,23 @@
+.render-categs .heading-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .render-categs .categs-heading {
   font-family: 'Anton', sans-serif;
   font-size: 25px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.render-categs .show-toggle {
+  padding: 5px;
+  flex-basis: 5%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #555;
 }
 
 .render-categs ul {

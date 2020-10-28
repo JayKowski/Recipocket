@@ -28,8 +28,27 @@ function searchMealReducer(state = '', action) {
   }
 }
 
+function sampleMealsReducer(state = [], action) {
+  switch (action.type) {
+    case 'SAMPLE_MEALS': return action.samples;
+    default: return state;
+  }
+}
+
+function sampleReducer(state = '', action) {
+  switch (action.type) {
+    case 'CURRENT_SAMPLE': return action.sample;
+    default: return state;
+  }
+}
+
 const rootReducer = combineReducers({
-  oneMealReducer, multiMealReducer, categoryReducer, searchMealReducer,
+  oneMealReducer,
+  multiMealReducer,
+  categoryReducer,
+  searchMealReducer,
+  sampleMealsReducer,
+  sampleReducer,
 });
 
 export default rootReducer;
