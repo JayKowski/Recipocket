@@ -5,6 +5,17 @@ import '../stylesheets/RenderCategs.css';
 
 let meals;
 
+function handleClick(e) {
+  const sampleDiv = document.querySelector('.categ-list');
+  if (e.target.textContent === 'hide') {
+    sampleDiv.style.display = 'none';
+    e.target.textContent = 'show';
+  } else {
+    e.target.textContent = 'hide';
+    sampleDiv.style.display = 'block';
+  }
+}
+
 class RenderCategs extends React.Component {
   componentDidMount() {
     const { categoryReducer, addMeals } = this.props;
@@ -31,17 +42,23 @@ class RenderCategs extends React.Component {
   }
 
   render() {
+    const { categoryReducer } = this.props;
     if (meals) {
       return (
         <div className="render-categs">
-          <h2 className="categs-heading">
-            Search results [
-            {' '}
-            {meals.length}
-            {' '}
-            ]
-            {' '}
-          </h2>
+          <div className="heading-data">
+            <h2 className="categs-heading">
+              Search results [
+              {' '}
+              {meals.length}
+              {' '}
+              ]
+              {' '}
+            </h2>
+            <span>
+              <button type="button" className="show-toggle" onClick={handleClick}>hide</button>
+            </span>
+          </div>
           <ul className="categ-list">
             <div className="categories-container">
               {
@@ -53,8 +70,12 @@ class RenderCategs extends React.Component {
             }
             </div>
           </ul>
-          <h2 className="categs-heading">END</h2>
         </div>
+      );
+    }
+    if (categoryReducer === 'None') {
+      return (
+        <span>{' '}</span>
       );
     }
     return (
