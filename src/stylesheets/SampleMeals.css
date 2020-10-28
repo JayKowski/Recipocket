@@ -1,0 +1,45 @@
+.sample-meals {
+  text-align: center;
+}
+
+.sample-meals .sample-hr {
+  width: 70%;
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+  margin-top: 45px;
+}
+
+.sample-meals .head-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.sample-meals ul {
+  list-style-type: none;
+}
+
+.sample-meals li {
+  display: inline-block;
+}
+
+.sample-meals .sample-heading {
+  font-family: 'Anton', sans-serif;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.sample-meals .toggle-show {
+  padding: 5px;
+  flex-basis: 5%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #555;
+}
+
+.sample-meals .sample-item {
+  width: 30%;
+}
