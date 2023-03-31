@@ -11,7 +11,7 @@ This is a web-based recipe app built on react that serves the purpose of providi
 ## Live Link
 
 Give the app a try using the link below and search for some recipes! <br />
-[Recipocket](https://recipocket.herokuapp.com/)
+[Recipocket](https://recipocket.netlify.app/)
 
 ## How the App works
 
